@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NL to SQL Query Console</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">SQLite demo database</p>
+            <h1>Natural language SQL console</h1>
+          </div>
+          <span class="status-pill">Read-only SELECT</span>
+        </header>
+
+        <section class="query-panel" aria-label="Natural language query">
+          <label for="prompt">Ask for data</label>
+          <div class="input-row">
+            <textarea id="prompt" rows="3">Show pending orders in the west region</textarea>
+            <button id="runButton" type="button">Run</button>
+          </div>
+          <div class="examples" aria-label="Example prompts">
+            <button type="button">revenue by region</button>
+            <button type="button">top 3 products by sales</button>
+            <button type="button">enterprise customers</button>
+            <button type="button">pending software orders after 2026-03-01</button>
+          </div>
+        </section>
+
+        <section class="results-grid">
+          <article class="sql-panel">
+            <div class="panel-head">
+              <h2>Generated SQL</h2>
+              <button id="copySql" type="button">Copy</button>
+            </div>
+            <pre id="sqlOutput">Run a prompt to generate SQL.</pre>
+          </article>
+
+          <article class="schema-panel">
+            <h2>Database Schema</h2>
+            <div id="schemaList" class="schema-list"></div>
+          </article>
+        </section>
+
+        <section class="table-panel">
+          <div class="panel-head">
+            <h2>Associated Results</h2>
+            <span id="rowCount">0 rows</span>
+          </div>
+          <div id="errorBox" class="error" hidden></div>
+          <div class="table-wrap">
+            <table id="resultTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

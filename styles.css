@@ -1,0 +1,287 @@
+:root {
+  color-scheme: light;
+  --ink: #18202a;
+  --muted: #5d6978;
+  --line: #d9dee7;
+  --panel: #ffffff;
+  --surface: #f5f7fa;
+  --accent: #0b6b72;
+  --accent-strong: #084d52;
+  --gold: #b67818;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.workspace {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.status-pill,
+#rowCount {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--muted);
+  background: #fff;
+  white-space: nowrap;
+}
+
+.query-panel,
+.sql-panel,
+.schema-panel,
+.table-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(20, 35, 50, 0.06);
+}
+
+.query-panel {
+  padding: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 12px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  color: var(--ink);
+  background: #fbfcfe;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 107, 114, 0.14);
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#runButton {
+  min-height: 70px;
+  border-color: var(--accent);
+  color: #fff;
+  background: var(--accent);
+  font-weight: 800;
+}
+
+#runButton:hover {
+  background: var(--accent-strong);
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.examples button {
+  padding: 8px 10px;
+  color: var(--muted);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.sql-panel,
+.schema-panel,
+.table-panel {
+  padding: 16px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#copySql {
+  padding: 7px 10px;
+  color: var(--muted);
+}
+
+pre {
+  min-height: 118px;
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 8px;
+  padding: 14px;
+  color: #e7f6f4;
+  background: #172326;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.schema-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.schema-table {
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+.schema-table strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.schema-table span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.table-panel {
+  margin-top: 16px;
+}
+
+.error {
+  margin-bottom: 12px;
+  border: 1px solid rgba(180, 35, 24, 0.25);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--danger);
+  background: rgba(180, 35, 24, 0.07);
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 11px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  color: var(--muted);
+  background: #f0f3f7;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .topbar,
+  .input-row,
+  .results-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  #runButton {
+    min-height: 48px;
+  }
+}
